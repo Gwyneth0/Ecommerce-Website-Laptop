@@ -1,0 +1,175 @@
+
+<div class="main-panel">
+	<h1 style="margin-top: 20px; text-align: center;">Thông tin người
+		dùng</h1>
+	<div class="container">
+		<form name=frmAcc>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Tên
+					đăng nhập</label> <input type="id" class="form-control"
+					ng-model="form.username" name="username" required> <em
+					ng-show="frmAcc.username.$invalid && !frmAcc.username.$pristine"
+					style="color: red;">Hãy nhập tên đăng nhập!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Mật khẩu</label> <input type="text"
+					class="form-control" ng-model="form.password" name="pasword"
+					required> <em
+					ng-show="frmAcc.pasword.$invalid && !frmAcc.pasword.$pristine"
+					style="color: red;">Hãy nhập mật khẩu!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Họ và tên</label> <input type="text"
+					class="form-control" ng-model="form.fullname" name="fullname"
+					required> <em
+					ng-show="frmAcc.fullname.$invalid && !frmAcc.fullname.$pristine"
+					style="color: red;">Hãy nhập tên đầy đủ!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label"> Số điện thoại</label> <input type="text"
+					class="form-control" ng-model="form.phoneNumber" name="phone"
+					required ng-pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"> <em
+					ng-show="frmAcc.phone.$invalid && !frmAcc.phone.$pristine"
+					style="color: red;">Số điện thoại không đúng!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Email</label> <input type="text"
+					class="form-control" ng-model="form.email" name="email" required
+					ng-pattern="/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/">
+				<em ng-show="frmAcc.email.$invalid && !frmAcc.email.$pristine"
+					style="color: red;">Email không đúng!</em>
+			</div>
+			<div class="mb-3">
+
+				<label for="formFile" class="form-label">Ảanh đại diện</label> <input
+					class="form-control" type="file"
+					onchange="angular.element(this).scope().changeImage(this.files)"
+					type="file" id="formFile"> <img
+					ng-src="/assets/admin/ImageA/{{form.photo}}"
+					class="img-thumbnail mt-1" style="width:auto; height:100px" alt="No image">
+			</div>
+			<div class="col-md-12">
+
+				<label class="col-form-label">Tỉnh/Thành phố</label> <select
+					class="form-select mb-2" ng-change="changeDistrict()"
+					ng-model="itemProvince.id" id="prov"
+					aria-label="Default select example">
+					<option ng-value="p.ProvinceID" ng-repeat="p in province.data">{{p.ProvinceName}}</option>
+
+				</select> <label class="col-form-label">Quận/Huyện</label> <select
+					class="form-select mb-2" ng-change="changeWard()"
+					ng-model="itemDistrict.id" id="dis">
+					<option ng-value="d.DistrictID" ng-repeat="d in district.data">{{d.DistrictName}}</option>
+
+				</select> <label class="col-form-label">Xã/Phường</label> <select
+					class="form-select mb-2" ng-model="itemWard.id" id="ward">
+					<option ng-value="w.WardCode" ng-repeat="w in ward.data">{{w.WardName}}</option>
+
+				</select> <label for="exampleFormControlTextarea1" class="form-label">Ghi
+					chú</label>
+				<textarea class="form-control mb-2" id="txtAdress" rows="3"></textarea>
+
+				<h4 id="errAddress"></h4>
+
+			</div>
+		</form>
+
+		<div class="icon">
+			<button type="button" class="btn btn-primary"
+				ng-click="save(frmAcc.$valid)">
+				<i style="margin-right: 10px;" class="fa-solid fa-plus"></i>Thêm
+			</button>
+			<button type="button" class="btn btn-warning" ng-click="update()">
+				<i style="margin-right: 10px;" class="fa-sharp fa-solid fa-wrench"></i>Cập
+				nhật
+			</button>
+
+			<button type="button" class="btn btn-light" ng-click="clear()">
+				<i style="margin-right: 10px;"
+					class="fa-sharp fa-solid fa fa-sticky-note"></i>Làm mới
+			</button>
+		</div>
+	</div>
+	<!-- content-wrapper ends -->
+	<!-- partial:../../partials/_footer.html -->
+
+	<!-- partial -->
+	<div class="card mt-1">
+		<div class="card-body">
+			<h4 class="card-title">Danh sách</h4>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Tên đăng nhập</th>
+						<th>Họ và tên</th>
+						<th>Số điện thoại</th>
+						<th>Email</th>
+						<th>Trạng thái</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr dir-paginate="a in accounts | itemsPerPage: 6">
+						<td>{{a.username}}</td>
+						<td>{{a.fullname}}</td>
+						<td>{{a.phoneNumber}}</td>
+						<td>{{a.email}}</td>
+						<td>
+							<div class="form-check form-switch" style="margin-top: 15px;">
+								<input class="form-check-input" type="checkbox"
+									ng-checked="a.isDeleted" ng-click=changeIsDel(a)> <label
+									class="form-check-label ml-0" for="flexSwitchCheckDefault">{{a.isDeleted?'Tắt':'Bật'}}</label>
+							</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn-warning btn-sm"
+								ng-click="edit(a)">Sửa</button>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>
+
+<script>
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				$('.image-upload-wrap').hide();
+
+				$('.file-upload-image').attr('src', e.target.result);
+				$('.file-upload-content').show();
+
+				$('.image-title').html(input.files[0].name);
+			};
+
+			reader.readAsDataURL(input.files[0]);
+
+		} else {
+			removeUpload();
+		}
+	}
+
+	function removeUpload() {
+		$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+		$('.file-upload-content').hide();
+		$('.image-upload-wrap').show();
+	}
+	$('.image-upload-wrap').bind('dragover', function() {
+		$('.image-upload-wrap').addClass('image-dropping');
+	});
+	$('.image-upload-wrap').bind('dragleave', function() {
+		$('.image-upload-wrap').removeClass('image-dropping');
+	});
+</script>

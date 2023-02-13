@@ -1,0 +1,64 @@
+<div class="container">
+	<p style="text-align: center; font-size: 50px;">Role</p>
+	<hr>
+	<div class="row">
+		<form name="frmRole">
+			<div class="col-md-12 pb-3">
+			<label class="form-label">Id</label> 
+			<input type="text"
+				class="form-control" ng-model="role.id" name="id" id="id"
+					oninput="this.value = this.value.toUpperCase()" ng-maxlength="10" required>
+				<em ng-show="frmRole.id.$invalid && !frmRole.id.$pristine"
+				style="color:red">Hãy nhập ID và k quá 10 ký tự!</em> <br>
+			<label class="form-label mt-2">Tên</label> 
+			<input type="text"
+				class="form-control" ng-model="role.name" name="name" required>
+				<em ng-show="frmRole.name.$invalid && !frmRole.name.$pristine"
+				style="color:red">Hãy nhập tên!</em> 
+		</div>
+		</form>
+		<div>
+			<button id="add" class="btn btn-primary" ng-click="add(frmRole.$valid)">Thêm</button>
+			<button id="update" class="btn btn-success" ng-click="update()">Cập nhật</button>
+			<button type="button" class="btn btn-secondary" ng-click="reset()">Reset</button>
+		</div>
+	</div>
+	<hr>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Id</th>
+				<th scope="col">Tên</th>
+				<th scope="col">Trạng thái</th>
+				
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="r in list | itemsPerPage: 6">
+				<th scope="row">{{$index+1}}</th>
+				<td>{{r.id}}</td>
+				<td>{{r.name}}</td>
+				<td>
+					<div class="form-check form-switch" style="margin-top: 15px;">
+								<input class="form-check-input" type="checkbox"
+									ng-checked="r.isDeleted" ng-click="updateRoleIsDeleted(r)"> <label
+									class="form-check-label ml-0" for="flexSwitchCheckDefault">{{r.isDeleted?'On':'Off'}}</label>
+							</div>
+				</td>
+				
+				<td>
+					<button type="button" class="btn btn-warning" ng-click="edit(r)">Sửa</button>
+				</td>
+			</tr> 
+			
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>

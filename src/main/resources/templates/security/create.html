@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+	<link rel="stylesheet" href="/assets/css/validateSigin.css">
+
+<body>
+	<main style="margin-top: 110px">
+	<div class="container" >
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <hr>
+                <p style="text-align:center ;margin-top: 30px;font-size: 35px;">Đăng kí</p>
+                <div class="card">
+                    <div class="card-body py-md-4">
+                        <form name="frmSigin" _lpchecked="1">
+                            <div class="form-group">
+                                <input ng-model="account.username" type="text" id="usernameSigin" class="form-control"
+                                 name="usernameSig" placeholder=" Tên đăng nhập" 
+                                 required autocomplete="off">
+                            	<em ng-show="frmSigin.usernameSig.$invalid && !frmSigin.usernameSig.$pristine" 
+                            	style="color:red">Nhập tên đăng nhập.</em>
+                            </div>
+                            <div class="form-group">
+                                <input ng-model="account.password"  type="password" class="form-control"
+                                 name="passwordSig" placeholder="Mật khẩu" required autocomplete="off">
+                            	<em ng-show="frmSigin.passwordSig.$invalid && !frmSigin.passwordSig.$pristine" 
+                            	style="color:red">Nhập mật khẩu.</em>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="confirm-password"
+                                 placeholder="Xác nhận mật khẩu" name="passConfirm"
+                                 required autocomplete="off">
+                            	<em ng-show="frmSigin.passConfirm.$invalid && !frmSigin.passConfirm.$pristine" 
+                            	style="color:red">Nhập lại mật khẩu.</em>
+                            	<em id="messErConfirmPass" ></em>
+                            </div>
+                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                <a th:href="@{/security/login/form}">Đăng nhập</a>
+                                <button class="btn btn-primary" ng-click="account.create(frmSigin.$valid)" >Đăng kí</button>
+                            </div> 
+                            <i class="pull-left text-danger" id="errSigin"></i>
+                        </form>
+                        <hr>
+                        <div class="col-12" style="margin-left: 100px;">
+                            <a href=""><button class="fa fa-facebook" style="background: #cecdcd;
+                                    clip-path: circle(43%);
+                                    height: 4em;
+                                    width: 4em;margin-top: 20px;"></button></a>
+                            <a href=""> <button class="fa fa-twitter" style="background:  #cecdcd;
+                                    clip-path: circle(43%);
+                                    height: 4em;
+                                    width: 4em;margin-top: 20px;"></button></a>
+                            <a href=""><button class="fa fa-google-plus" style="background: #cecdcd;
+                                    clip-path: circle(43%);
+                                    height: 4em;
+                                    width: 4em;margin-top: 20px;"></button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</main>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

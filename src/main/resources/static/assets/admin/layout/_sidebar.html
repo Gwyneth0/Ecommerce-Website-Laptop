@@ -1,0 +1,104 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="profile-image">
+                                <!-- <img class="img-xs rounded-circle" src="/assets/admin/images/faces/face8.jpg" alt="profile image"> -->
+       
+                            </div>
+                            <div class="text-wrapper">
+                                <p class="profile-name">{{admin.fullname}}</p>
+                                <!-- <p class="designation">ADMIN</p> -->
+                            </div>
+                            
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item" ng-if="rol == 'ADMIN'">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Biểu đồ thống kê</span>
+                            <i class="icon-chart menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic1">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#!chartCategories">Thống kê theo danh mục</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#!chartByMonth">Thôngs kê doanh thu theo năm-tháng</a></li>
+                            	<li class="nav-item"> <a class="nav-link" href="#!chartByQtyProduct">Thống kê doanh thu theo số lượng sản phẩm</a></li>
+                            	<li class="nav-item"> <a class="nav-link" href="#!chartByClient">Thống kê doanh thu theo khách hàng</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                   
+          
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Thông tin</span>
+                            <i class="icon-layers menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#!product">Sản phẩm</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#!product_images">Ảnh sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!order">
+                            <span class="menu-title">Đơn hàng</span>
+                            <i class="icon-book-open menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!categories">
+                            <span class="menu-title">Danh mục</span>
+                            <i class="icon-book-open menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!account">
+                            <span class="menu-title">Người  dùng</span>
+                            <i class="icon-user menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-show="rol == 'ADMIN'">
+                        <a class="nav-link" href="#!autho">
+                            <span class="menu-title">Phân quyền</span>
+                            <i class="icon-grid menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!dis">
+                            <span class="menu-title">Giảm giá</span>
+                            <i class="icon-usd menu-icon"></i>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!brand">
+                            <span class="menu-title">Hãng</span>
+                            <i class="icon-usd menu-icon"></i>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#!role">
+                            <span class="menu-title">Vai trò</span>
+                            <i class="icon-usd menu-icon"></i>
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!address">
+                            <span class="menu-title">Địa chỉ cửa hàng</span>
+                            <i class="icon-usd menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!evalution">
+                            <span class="menu-title">Đánh giá</span>
+                            <i class="icon-usd menu-icon"></i>
+                        </a>
+                    </li>
+                   
+                    
+                    
+                </ul>
+            </nav>

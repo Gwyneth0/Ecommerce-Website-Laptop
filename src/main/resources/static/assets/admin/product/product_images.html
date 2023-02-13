@@ -1,0 +1,49 @@
+
+<!-- <div class="item-upload">
+        <input id="photo-upload" type="file" multiple />
+        <div id="photo-upload__preview" class="upload-preview"></div>
+    </div>
+   
+ 
+    <button ng-click="save()">save</button>
+    
+    <img ng-repeat="name in listFileName" ng-src="/assets/admin/ImageP/{{name}}" class="img-fluid"
+			alt="No image"> -->
+
+<script src="https://kit.fontawesome.com/76613e2f02.js" crossorigin="anonymous"></script>
+<div class="container">
+	<select class="form-control mb-2" id="exampleFormControlSelect1"
+		ng-model="itemProduct.id" ng-change="select()">
+		<option ng-value="p.id" ng-repeat="p in listProduct">{{p.name}}</option>
+
+	</select>
+	<div class="row justify-content-center align-items-center" ng-if="itemProd.name != undefined">
+		<div class="card" style="width: 18rem;">
+			<img ng-src="/assets/admin/ImageP/{{itemProd.image}}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">{{itemProd.name}}</h5>
+	
+			</div>
+		</div>
+	</div>
+	<div class="item-upload " >
+		<input style="margin-bottom: 10px; color: transparent;" 
+			id="photo-upload" type="file" multiple />
+		<div id="photo-upload__preview" class="upload-preview"></div>
+		
+		<button style="margin-top: 20px" type="button" class="btn btn-success"
+		ng-click="save()">Lưu</button>
+	</div>
+
+	
+
+
+	<div class="row">
+		<div class="col-md-3" ng-repeat="name in listFileName">
+			<i class="fa-solid fa-trash" ng-click="delete(name)"></i> <img
+				class="img-thumbnail"
+				style="margin-top: 20px; margin-right: 20px; width: 200px; height: 200px"
+				ng-src="/assets/admin/ImageP/{{name}}" alt="No image">
+		</div>
+	</div>
+</div>

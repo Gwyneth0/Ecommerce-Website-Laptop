@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main style="margin-top: 110px">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<hr>
+				<p style="text-align: center; margin-top: 30px; font-size: 35px;">Vui lòng nhập Email</p>
+				<div class="card">
+					<div class="card-body py-md-4">
+						<form th:action="@{/enter_Email/form}" method="post">
+							<div class="form-group">
+								<input name="email" id="enterEmail" class="form-control"
+									placeholder="Email?" required autocomplete="off">
+									<em id="errEmail"></em>
+							</div>
+							<div class="d-flex flex-row align-items-center justify-content-between">				
+								<button id="btnSend" type="button" onclick="checkEmail()"
+								class="btn btn-primary">Gửi</button>
+								<i class="pull-left text-danger" th:text="${message}"></i>
+							</div>
+						</form>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

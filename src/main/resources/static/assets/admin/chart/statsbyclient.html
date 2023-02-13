@@ -1,0 +1,35 @@
+
+    <div class="card">
+        <div class="card-header text-center">
+          <h1>THỐNG KÊ DOANH THU THEO TỪNG KHÁCH HÀNG TRONG THÁNG GẦN NHẤT</h1>
+        </div>
+       
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-12 col-xs-12">
+					<div id="chartjs" >
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+              <div class="col-md-12 col-xs-12 mt-5" >
+					<select class="form-control mb-2" ng-model="keyW" ng-change="select()">
+						<option ng-value="value[1]" ng-repeat="(key,value) in clients">{{value[0]}}</option>
+					</select>
+					<table class="table table-bordered text-center mt-3">
+						<thead>
+							<th>TÊN SẢN PHẨM</th>
+							<th>NGÀY MUA HÀNG</th>
+							<th>TỔNG TIỀN</th>
+						</thead>
+						<tbody>
+							 <tr ng-repeat="(key, value) in clients_by_key">
+								<td>{{value[0]}}</td>
+								<td>{{value[1]|date:"dd-MM-yyyy"}}</td>
+								<td>{{value[2]}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        </div>
+        </div>
+      </div>

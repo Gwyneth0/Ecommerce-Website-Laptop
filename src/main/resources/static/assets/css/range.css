@@ -1,0 +1,117 @@
+
+/* Price Range */
+price-range {
+  --thumb-size: 15px;
+  --thumb-color: #000;
+  --thumb-shadow-size: 5px;
+  --track-size: 1px;
+  --track-color: #bbb;
+  --track-highlight-color: #000;
+
+  width: 50%;
+  display: block;
+}
+
+/* Price Range Containers */
+price-range > div {
+  position: relative;
+  width: 100%;
+  height: var(--thumb-size);
+}
+price-range > div > div {
+  width: 100%;
+  height: var(--track-size);
+  background: var(--track-color);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* Price Range Input */
+price-range input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* Price Range Input Track */
+price-range input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+price-range input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  height: 5px;
+}
+price-range input[type="range"]::-ms-track {
+  appearance: none;
+  height: 5px;
+}
+
+/* Price Range Input Thumb */
+price-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -5px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background: var(--thumb-color);
+  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 var(--thumb-color);
+  transition: box-shadow 0.15s ease;
+}
+price-range input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background: var(--thumb-color);
+  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 var(--thumb-color);
+  transition: box-shadow 0.15s ease;
+}
+price-range input[type="range"]::-ms-thumb {
+  appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background: var(--thumb-color);
+  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 var(--thumb-color);
+  transition: box-shadow 0.15s ease;
+}
+
+price-range input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 var(--thumb-shadow-size) var(--thumb-color);
+}
+price-range input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 var(--thumb-shadow-size) var(--thumb-color);
+}
+price-range input[type="range"]::-ms-thumb:hover {
+  box-shadow: 0 0 0 var(--thumb-shadow-size) var(--thumb-color);
+}
+
+/* Price Range Output */
+price-range output {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}

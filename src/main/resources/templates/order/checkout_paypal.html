@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+
+	<main style="margin-top: 110px">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="banner-form" style="margin-top: 20px;">
+				<h3>Vui lÃ²ng nháº­p thÃ´ng tin</h3>
+				<div role="form" class="wpcf7" id="wpcf7-f976-o1" dir="ltr"
+					lang="en-US">
+					<div class="screen-reader-response"></div>
+					<form class="wpcf7-form"
+						novalidate="novalidate">
+						<div style="display: none;">
+							<input type="hidden" name="_wpcf7" value="976"> <input
+								type="hidden" name="_wpcf7_version" value="5.1.1"> <input
+								type="hidden" name="_wpcf7_locale" value="en_US"> <input
+								type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f976-o1">
+							<input type="hidden" name="_wpcf7_container_post" value="0">
+							<input type="hidden" name="g-recaptcha-response" value="">
+						</div>
+
+						<!-- <input type="text" placeholder="Ä�á»‹a chá»‰" name="looking_for" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-control required"> -->
+						<div class="form-content">
+							<div class="form-field">
+								<!-- <input name="fn" type="text" style="width: 100%;"> -->
+								<div hidden class="form-control" id="username">[[${#request.remoteUser}]]</div>
+							</div>
+							<div class="form-left-side ">
+								<label>Tá»‰nh/ThÃ nh</label> <select
+									style="height: 40px; width: 740px;" class="form-select mb-2"
+									ng-change="changeDistrict()" ng-model="itemProvince.id"
+									id="prov" aria-label="Default select example">
+									<option ng-value="p.ProvinceID" ng-repeat="p in province.data">{{p.ProvinceName}}</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-right-side">
+								<label>Quáº­n/Huyá»‡n:</label>
+								<!-- <select  style="height: 40px;" name="property_is_form" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-control required" id="select-down" aria-required="true" aria-invalid="false" ng-change="changeWard()"
+										ng-model="itemDistrict.d" aria-label="Default select example">
+										<option ng-value="d" ng-repeat="d in district.data">{{d.DistrictName}}</option>
+
+									</select>   -->
+
+								<select style="height: 40px; width: 740px;"
+									class="form-select mb-2" ng-change="changeWard()"
+									ng-model="itemDistrict.id" id="dis">
+									<option ng-value="d.DistrictID" ng-repeat="d in district.data">{{d.DistrictName}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-content">
+							<div class="form-left-side ">
+								<label>PhÆ°á»�ng/XÃ£:</label>
+								<!-- <select style="height: 40px;" name="property_location" class="wpcf7-form-control wpcf7-select form-control" id="select-down" aria-invalid="false"><option value="England">England</option><option value="Wales">Wales</option></select> -->
+
+								<select style="height: 40px; width: 740px;"
+									class="form-select mb-2" ng-model="itemWard.id" id="ward">
+									<option ng-value="w.WardCode" ng-repeat="w in ward.data">{{w.WardName}}</option>
+								</select>
+							</div>
+
+							<div class="form-right-side">
+								<input style="height: 40px; margin-top: 40px;" type="text"
+									size="40" class="form-control mb-2" id="txtAdress"></input>
+							</div>
+						</div>
+
+						<div class="form-content">
+							<div class="form-left-side">
+								<label>TÃªn ngÆ°á»�i nháº­n:</label> <input id="fullname"
+									ng-model="account.fullname" style="height: 40px;" type="text"
+									size="40"
+									class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control required"
+									aria-required="true" aria-invalid="false">
+							</div>
+							<div class="form-right-side">
+								<label>Sá»‘ Ä‘iá»‡n thoáº¡i:</label> <input id="phoneNumber"
+									ng-model="account.phoneNumber" style="height: 40px;" size="40"
+									class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel form-control required"
+									aria-required="true" aria-invalid="false">
+							</div>
+						</div>
+						</form>
+						<div class="form-content">
+						<div class="form-left-side">
+							<form method="post" th:action="@{/pay}">
+						
+								<label>Số tiền cần thanh toán</label> 
+									<input type="text" readonly class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" th:value="${price_view}" name="price" />
+									<button type="submit" ng-click="order.purchase('paypal')"
+										class="bt_main">Thanh toán</button>
+							
+								
+							</form>
+							</div>
+						</div>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+
+	<!-- <div class="container" style="border-style: groove;">
+		<h3 style="text-align: center; margin-top: 10px;">Sáº£n pháº©m</h3>
+		<hr>
+		<form>
+			<div class="row">
+				<div class="col-sm-3" style="margin-bottom: 10px;">
+					<img
+						src="https://product.hstatic.net/200000306799/product/0__2__96f21b3fc8ce460a9b1178e303bd866c_small.jpg"
+						class="img-thumbnail" alt="...">
+				</div>
+				<div class="col-sm-3">
+					<label for="exampleInput" class="form-label">MÃ£ sáº£n pháº©m</label> <input
+						type="text" class="form-control">
+				</div>
+				<div class="col-sm-3">
+					<label for="exampleInput" class="form-label">Ä�Æ¡n giÃ¡</label> <input
+						type="text" class="form-control">
+				</div>
+				<div class="col-sm-3">
+					<label for="exampleInput" class="form-label">Sá»‘ lÆ°á»£ng</label> <input
+						type="number" class="form-control">
+				</div>
+			</div>
+			<hr>
+			<div class="#">
+				<p>GiÃ¡ sáº£n pháº©m:</p>
+				<p>GiÃ¡ ngoáº¡i thÃ nh:</p>
+				<p>Tá»•ng tiá»�n:</p>
+			</div>
+		</form>
+	</div> --> </main>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

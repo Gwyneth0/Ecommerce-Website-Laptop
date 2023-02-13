@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<hr>
+				<p style="text-align: center; margin-top: 30px; font-size: 35px;">Đăng
+					nhập</p>
+				<div class="card">
+					<div class="card-body py-md-4">
+						<form th:action="@{/security/login}" method="post">
+
+							<div class="form-group">
+								<input name="username" class="form-control" id="sdt"
+									placeholder="Tên đăng nhập" required autocomplete="off">
+							</div>
+
+
+							<div class="form-group">
+								<input name="password" type="password" class="form-control"
+									id="password" placeholder="Mật khẩu" required
+									autocomplete="off">
+							</div>
+							<div class="form-group">
+								<div class="form-control">
+									<lable class="checkbox-inline"> <input type="checkbox"
+										name="remember-me">Remember me? </lable>
+								</div>
+							</div>
+							<div
+								class="d-flex flex-row align-items-center justify-content-between">
+								<a th:href="@{/security/create/form}">Đăng kí</a>
+								<button class="btn btn-primary">Đăng nhập</button>
+							</div>
+							<i class="pull-left text-danger" th:text="${message}"></i>
+						</form>
+						<hr>
+						<div class="col-12" style="margin-left: 100px;">
+							<a href=""><button class="fa fa-facebook"
+									style="background: #cecdcd; clip-path: circle(43%); height: 4em; width: 4em; margin-top: 20px;"></button></a>
+							<a href="">
+								<button class="fa fa-twitter"
+									style="background: #cecdcd; clip-path: circle(43%); height: 4em; width: 4em; margin-top: 20px;"></button>
+							</a> <a href=""><button class="fa fa-google-plus"
+									style="background: #cecdcd; clip-path: circle(43%); height: 4em; width: 4em; margin-top: 20px;"></button></a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

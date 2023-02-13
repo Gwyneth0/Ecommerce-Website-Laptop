@@ -1,0 +1,103 @@
+<style>
+.popup-container {
+	position: relative;
+	display: inline-block;
+	background: none;
+	cursor: pointer;
+}
+
+.popup-container .popup-body {
+	visibility: hidden;
+	position: absolute;
+	width: aoto;
+	background-color: #E3E3E3;
+	color: #000;
+	text-align: left;
+	padding: 30px;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.3s;
+	-webkit-box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.popup-container .show-popup {
+  visibility: visible;
+  opacity: 1;
+  @include susy-breakpoint(0 $breakpoint-tablet-landscape, 8) {
+    width: 350px;
+  }
+}
+.popup-bottom {
+	top: 135%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+</style>
+<div class="card-body">
+
+
+	<h4 class="card-title">Đánh giá sản phẩm</h4>
+	<select class="form-select my-4" aria-label="Default select example" 
+		ng-model="chose" ng-init="chose = false">
+		<option  ng-value="true"> Cho phép</option>
+		<option  ng-value="false">Không cho phép</option>
+
+	</select>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Tên sản phẩm</th>
+				<th>Tài khoản</th>
+				<th>Bình luận</th>
+				<th>Đánh giá</th>
+				<th>Trạng thái</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="e in list | filter: {status: chose}">
+
+				<td>{{e.product.name}}</td>
+				<td>{{e.account.fullname}}</td>
+				<td>
+
+					<div class="popup-container">
+						<span class="popup-link"><input class="border-0"
+							ng-value="e.comment" title="{{e.comment}}" readonly></span> 
+						<span 
+							class="popup-body popup-bottom ">
+							<p>{{e.comment}}</p> 
+						
+						</span>
+					</div>
+
+				</td>
+				<td><span dir-paginate="s in stars| itemsPerPage: 9"> <i
+						ng-if="s < e.evalution" class="fa fa-star" aria-hidden="true"></i>
+				</span></td>
+				<td>
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox"
+							id="flexSwitchCheckDefault" ng-checked="e.status" ng-click="status(e)"> <label
+							> {{e.status?"on":"off"}}</label>
+
+					</div>
+				</td>
+				<td>
+					<button type="button" class="btn btn-danger" ng-click="del(e.id)">Xóa</button>
+				</td>
+
+			</tr>
+
+		</tbody>
+	</table>
+	
+</div>
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+
+	<main style="margin-top: 110px">
+	<div class="section padding_layout_1 checkout_section">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-md-8">
+					<div class="checkout-form">
+							<fieldset>
+								<div class="row">
+									<div class="col-md-12">
+										<!-- <label>Số Điện Thoại / Email<span style="color: red;">*</span></label> -->
+										<div class="form-field">
+											<!-- <input name="fn" type="text" style="width: 100%;"> -->
+											<div hidden class="form-control" id="username">[[${#request.remoteUser}]]</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label>Họ Và Tên<span style="color: red;">*</span></label>
+										<div class="form-field">
+											<!-- <input name="ln" type="text" style="width: 100%;"> -->
+												  <input id="fullname" ng-model="order.fullname"   type="text" style="width: 100%;"> 
+												 
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<label>Số Điện Thoại<span style="color: red;">*</span></label>
+										<div class="form-field">
+											<!-- <input name="ln" type="text" style="width: 100%;"> -->
+												  <input id="phoneNumber" ng-model="order.phoneNumber"   type="text" style="width: 100%;"> 
+												 
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<label>Địa Chỉ Giao Hàng<span style="color: red;">*</span></label>
+										<div class="form-field">
+											<!-- <input name="cm" type="text" > -->
+											<textarea id="address" ng-model="order.address" class="form-control" style="width: 100%;"></textarea>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 payment-bt" style="margin-left: 10px;">
+											<div class="center">
+												<button ng-click="order.purchase()" class="bt_main">Đặt Hàng</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="shopping-cart-cart">
+						<table>
+							<tbody>
+								<tr class="head-table">
+									<td>
+										<h5>Thông tin giỏ hàng</h5>
+									</td>
+									 
+								</tr>
+								<tr>
+									<td>
+										<h4>Subtotal</h4>
+									</td>
+									<td class="text-right">
+										<h4>{{cart.amount|number:2}} VNĐ</h4>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Estimated shipping</h5>
+									</td>
+									<td class="text-right">
+										<h4>Free</h4>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<h3>Total</h3>
+									</td>
+									<td class="text-right">
+										<h4>{{cart.amount|number:2}} VNĐ</h4>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- <div class="col-sm-12">
+                    <div class="payment-form">
+                        <div class="col-xs-12 col-md-12">
+                            CREDIT CARD FORM STARTS HERE
+                            <div class="panel panel-default credit-card-box">
+                                <div class="panel-heading display-table">
+                                    <div class="display-tr">
+                                        <h3 class="panel-title display-td">Payment Details</h3>
+                                        <div class="display-td"> <img class="img-responsive pull-right" src="images/it_service/accepted.png" alt="#"> </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form id="payment-form" method="POST" action="index.html">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-field">
+                                                    <label>Card Number</label>
+                                                    <div class="form-field cardNumber">
+                                                        <input name="cardNumber" placeholder="Valid Card Number" required="" type="tel">
+                                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-7">
+                                                <div class="form-field">
+                                                    <label><span class="hidden-xs">Expiration</span><span class="visible-xs-inline">EXP</span> Date</label>
+                                                    <input name="cardExpiry" placeholder="MM / YY" required="" type="tel">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-5 pull-right">
+                                                <div class="form-field">
+                                                    <label>CV Code</label>
+                                                    <input name="cardCVC" placeholder="CVC" required="" type="tel">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-field">
+                                                    <label>Coupon Code</label>
+                                                    <input name="couponCode" required="" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 payment-bt">
+                                                <div class="center">
+                                                    <button class="bt_main">Start Subscription</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            CREDIT CARD FORM ENDS HERE
+                        </div>
+                    </div>
+                </div> -->
+			</div>
+		</div>
+	</div>
+
+	</main>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

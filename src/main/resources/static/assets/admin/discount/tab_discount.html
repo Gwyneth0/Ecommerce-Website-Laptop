@@ -1,0 +1,56 @@
+<h3>Sản phẩm giảm giá</h3>
+<table class="table-responsive">
+	<thead>
+		<tr>
+			<th scope="col">Mã SP</th>
+			<th scope="col">Tên sản phẩm</th>
+			<th scope="col">Ngày bắt đầu</th>
+			<th scope="col">Ngày kết thúc</th>
+			<th scope="col">Phần trăm</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="d in pager.items ">
+			<th scope="row">{{d.product.id}}</th>
+			<td>{{d.product.name}}</td>
+			<td>
+				<input type="datetime-local" class="form-control"
+					id="txt_createDate{{d.id}}" ng-model="d.createDate">
+			</td>
+			<td>
+				<input type="datetime-local" class="form-control"
+					id="txt_endDate{{d.id}}" ng-model="d.endDate">
+			</td>
+			<td>
+				
+				<input type="number" class="form-control"
+					id="txt_per{{d.id}}" ng-model="d.percentage">
+			</td>
+			<td>
+				<button type="button" class="btn btn-success btn-sm" ng-click="save(d)">Lưu</button>
+				<!-- <button type="button" class="btn btn-primary btn-sm" ng-click="update(d)">Cập nhật</button> -->
+				<button type="button" class="btn btn-danger btn-sm" ng-click="del(d.product, d)">Xóa</button>
+			</td>
+		</tr>
+
+	</tbody>
+	
+</table>
+<div class="panel-footer text-center">
+        <button ng-click="pager.first()" class="btn btn-danger">
+            <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button ng-click="pager.prev()" class="btn btn-primary">
+            <i class="fa-solid fa-backward-fast"></i>
+        </button>
+        <button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+        <button ng-click="pager.next()" class="btn btn-primary">
+            <i class="fa-solid fa-forward-fast"></i>
+        </button>
+        <button ng-click="pager.last()" class="btn btn-danger">
+           <i class="fa-solid fa-forward-step"></i>
+        </button>
+    </div>
+
+ 

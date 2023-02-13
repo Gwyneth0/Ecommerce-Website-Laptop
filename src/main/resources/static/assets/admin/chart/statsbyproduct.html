@@ -1,0 +1,36 @@
+<div class="card">
+        <div class="card-header text-center">
+          <h1>THỐNG KÊ DOANH THU THEO SẢN PHẨM</h1>
+        </div>
+       
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-12 col-xs-12  mb-5">
+					<div>
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+              <div class="col-md-12 col-xs-12" >
+					<table class="table table-bordered text-center">
+						<thead>
+							<th>ID SP</th>
+							<th>TÊN SẢN PHẨM</th>
+							<th>GIÁ</th>
+							<th>SỐ LƯỢNG</th>
+							<th>TỔNG TIỀN</th>
+						</thead>
+						<tbody>
+							 	<tr ng-repeat="(key, value) in items">
+							 		<td>{{value[0]}}</td>
+							 		<td>{{value[1]}}</td>
+							 		<td>{{value[2]}}</td>
+							 		<td>{{value[3]}}</td>
+							 		<td>{{value[4]}}</td>
+							 	</tr>
+						</tbody>
+					</table>
+				</div>
+        </div>
+        </div>
+      </div>
+      

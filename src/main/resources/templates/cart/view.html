@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main class="it_serv_shopping_cart shopping-cart" style="margin-top: 110px">
+	  
+	<div class="section padding_layout_1 Shopping_cart_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="product-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th>Tên</th>
+                                    <th>Số lượng</th>
+                                    <th class="text-center">Giá</th>
+                                    <th class="text-center">Tổng</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in cart.items">
+                                    <td class="col-sm-5 col-md-2">
+                                        <div class="media">
+                                            <a class="thumbnail pull-left" ng-href="/product/detail/{{item.id}}"> <img class="media-object" ng-src="/assets/images/{{item.image}}" ></a>
+                                        </div>
+                                    </td>
+                                     <td class="col-sm-3 col-md-2">
+                                        <div class="media">
+                                             
+                                            <div class="media-body">
+                                                 <h4 class="media-heading"><a ng-href="/product/detail/{{item.id}}">{{item.name}}</a></h4> 
+                                                <!-- <span>Status: </span><span class="text-success">In Stock</span>  -->
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1 text-center"  ><input style="margin-top: 43px;" ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number" min="1">
+                                    </td>
+                                    <td class="col-sm-1 col-md-3 text-center">
+                                        <p class="price_table">{{item.price|number:2}} VNĐ</p>
+                                    </td>
+                                    <td class="col-sm-1 col-md-3 text-center">
+                                        <p class="price_table">{{item.qty*item.price|number:2}} VNĐ</p>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1"><button ng-click="cart.remove(item.id)" type="button" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <tbody>
+                                <tr class="cart-form">
+                                    <td class="actions">
+                                        <input ng-click="cart.clear()"  class="button" name="update_cart" value="Xoá tất cả"  type="submit">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="shopping-cart-cart row" >
+                        <table >
+                            <tbody>
+                                <tr class="head-table">
+                                    <td>
+                                        <h5>Thanh toán</h5>
+                                    </td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <h4>Tổng phụ</h4>
+                                    </td>
+                                    <td class="text-right">
+                                        <h4>{{cart.amount|number:2}} VNĐ</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Phí vận chuyển</h5>
+                                    </td>
+                                    <td class="text-right">
+                                        <h4>Free</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3>Tổng</h3>
+                                    </td>
+                                    <td class="text-right">
+                                        <h4>{{cart.amount|number:2}} VNĐ</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                	
+                                    <td>
+                                     
+                                    
+                                    </td>
+                                    <td>
+                                    	<form style="margin-left: -100px" th:action="@{/order/checkout}">
+                                    	    <button type="button" class="button">Phương thức thanh toán</button>                              
+                                    		<input type="radio" value="normal" checked name="pay"> Thanh toán khi nhận hàng </br> 
+                                    		<input type="radio" value="paypal" name="pay">	Thanh toán Paypal
+                                    		<input hidden name="price_pay" value = "{{cart.amount}}"> 
+                                			<button class="button">Đặt Hàng</button>
+                                		</form>
+                                    	<!-- <a th:href="@{/order/checkout}" class="button">Checkout</a> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</main>
+</body>
+
+</html>
+

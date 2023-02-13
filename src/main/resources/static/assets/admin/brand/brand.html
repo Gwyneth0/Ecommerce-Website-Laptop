@@ -1,0 +1,71 @@
+<div class="container">
+	<p style="text-align: center; font-size: 50px;">Brand</p>
+	<hr>
+	<div class="row">
+		<div class="col-md-6 pb-3">
+			<div style="height:200px">
+				
+				<img ng-if="brand.image != undefined" src="/assets/admin/ImageB/{{brand.image}}" class="img-fluid h-100 w-100" style="object-fit: contain;" alt="...">
+				<img ng-if="brand.image == undefined" src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" class="img-fluid h-100 w-100" style="object-fit: contain;" alt="...">
+			</div>
+		</div>
+		
+			<div class="col-md-6">
+			<form name="frmBrand">
+				<label class="form-label">Tên hãng</label> <input type="text"
+					class="form-control" ng-model="brand.name" name="name" required>
+					<em ng-show="frmBrand.name.$invalid && !frmBrand.name.$pristine"
+						style="color:red;">Hãy nhập tên sản phẩm!</em><br>
+					 <label class="form-label mt-2">Logo</label>
+					  <input
+					class="form-control"
+					onchange="angular.element(this).scope().changeImage(this.files)"
+					id="formFileLg" type="file">
+					</form>
+			</div>
+		
+		<div>
+			<button type="button" class="btn btn-primary" ng-click="add(frmBrand.$valid)">Thêm</button>
+			<button type="button" class="btn btn-success" ng-click="update()">Cập nhật</button>
+			<button type="button" class="btn btn-secondary" ng-click="reset()">Làm mới</button>
+		</div>
+	</div>
+	<hr>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Tên</th>
+				<th scope="col">Trạng thái</th>
+				<th scope="col">Logo</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="b in list | itemsPerPage: 6">
+				<th scope="row">{{$index+1}}</th>
+				<td>{{b.name}}</td>
+				<td>
+					<div class="form-check form-switch" style="margin-top: 15px;">
+								<input class="form-check-input" type="checkbox"
+									ng-checked="b.isDeleted" ng-click="updateBrandIsDeleted(b)"> <label
+									class="form-check-label ml-0" for="flexSwitchCheckDefault">{{b.isDeleted?'Tắt':'Bật'}}</label>
+							</div>
+				</td>
+				<td>
+					<img src="/assets/admin/ImageB/{{b.image}}" class="rounded float-start" alt="...">
+				</td>
+				<td>
+					<button type="button" class="btn btn-warning" ng-click="edit(b)">Sá»­a</button>
+				</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>

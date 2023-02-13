@@ -1,0 +1,36 @@
+
+
+ <div class="container">
+ <a class="btn btn-primary" style="border-radius:50%" href="#!order"><-</a>
+	<div class="table">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Chi tiết hóa đơn</h4> 
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Tên sản phẩm</th>
+							<th>Giá</th>
+							<th>Số lượng</th>
+							<th>Hình</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr ng-repeat="d in detail">
+							
+							<td>{{d.product.name}}</td>
+							<td>{{d.price}}</td>
+							<td>{{d.quantity}}</td>
+							<td>
+								<img ng-src="/assets/admin/ImageP/{{d.product.image}}" class="rounded d-block" alt="...">
+							</td> 
+						</tr>
+					</tbody>
+				</table>
+			 </div>
+		</div>
+	</div>
+</div> 

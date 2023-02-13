@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main style="margin-top: 120px">
+		
+			<div class="panel panel-primary">
+				<div class="panel-heading">YOUR ORDERS PURCHASED</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Đặt hàng</th>
+							<th scope="col">Ngày đặt hàng</th>
+							<th scope="col">Địa chỉ</th>
+							<th scope="col">Số điện thoại</th>
+							<th scope="col">Trạng thái</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<tbody>
+						<tr th:each="order, state: ${orders}">
+							<td scope="col">[[${state.index}]]</td>
+							<td scope="col">[[${order.id}]]</td>
+							<td scope="col">[[${order.createDate}]]</td>
+							<td scope="col">[[${order.address}]]</td>
+							<td scope="col">[[${order.account.phoneNumber}]]</td>
+							<td scope="col">[[${order.orderStatus}]]</td>
+							<td scope="col"><a th:if="${order.orderStatus == 'Chưa xác nhận'}"
+								th:attr="ng-click=@{|delete(${order.id})|}"
+								class="btn btn-default"> Hủy Đơn </a> <a
+								th:if="${order.orderStatus == 'Đã xác nhận'}"
+								th:attr="ng-click=@{|cart.message()|}" class="btn btn-default"
+								disable> Hủy Đơn </a></td>
+							<td><a th:href="@{|/order/detail/${order.id}|}"
+								class="btn btn-default"> <b
+									class="glyphicon glyphicon-search"></b>
+							</a></td>
+						</tr>
+					</tbody>
+
+
+					</tbody>
+
+				</table>
+
+			</div>
+	
+	</main>
+</body>
+
+</html>

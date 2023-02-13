@@ -1,0 +1,263 @@
+<link rel="stylesheet" href="/assets/css/start.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main th:object="${item}" style="margin-top: 110px">
+	<div class="section padding_layout_1 product_detail">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-xl-6 col-lg-12 col-md-12">
+							<div class="product_detail_feature_img hizoom hi2">
+								<div class='hizoom hi2'>
+									<img id="changeImage" th:src="@{|/assets/images/*{image}|}" alt="#" />
+								</div>
+							</div>
+						</div>
+						
+						<div
+							class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
+							<div class="product-heading">
+								<h2 th:text="*{name}"></h2>
+							</div>
+							<div th:object="${dis}" class="product-detail-side">
+								<th:block th:if="${dis != 'null'}">
+									<span class="new-price">[[${#numbers.formatDecimal(item.price
+										*(100-dis.percentage)/100, 0, 'WHITESPACE', 0, 'POINT')}]] VND</span>
+								</th:block>
+								<th:block th:if="${dis == 'null'}">
+									<span class="new-price">[[${#numbers.formatDecimal(item.price
+										, 0, 'WHITESPACE', 0, 'POINT')}]] VND</span>
+								</th:block>
+								<!-- <span
+									class="rating"> <i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i> <i
+									class="fa fa-star" aria-hidden="true"></i> <i
+									class="fa fa-star" aria-hidden="true"></i> <i
+									class="fa fa-star-o" aria-hidden="true"></i>
+								</span> <span class="review">(5 customer review)</span> -->
+							</div>
+							<div class="detail-contant">
+								<p th:utext="*{discription}"></p>
+								
+								<div class="cart">
+									<!-- <div class="quantity">
+										<input step="1" min="1" max="5" name="quantity" value="1"
+											title="Qty" class="input-text qty text" size="4"
+											type="number">
+									</div> -->
+									<button type="submit" class="btn sqaure_bt">
+										<th:block th:if="${dis != 'null'}">
+											<a
+												th:attr="ng-click=@{|cart.addsale(${item.id},${dis.percentage})|}">Add
+												to cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
+											</a>
+										</th:block>
+										<th:block th:if="${dis == 'null'}">
+											<a th:attr="ng-click=@{|cart.add(${item.id})|}">Thêm giỏ hàng <i class="fa fa-cart-plus" aria-hidden="true"></i>
+											</a>
+										</th:block>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row" style="margin-top: 20px">
+						<div class="col-md-12">
+							<div id="carouselExample" class="carouselPrograms carousel slide"
+								data-ride="carousel" data-interval="false">
+								<div class="carousel-inner row w-100 mx-auto" role="listbox">
+									<div  class="carousel-item col-md-4  active">
+										<div class="panel panel-default">
+											<div class="panel-thumbnail">
+												<a style="width: 60px;height: 40px;"  class="thumb" > 
+													<img style="width: 100%;height: 100%;" th:attr="ng-click=@{|selectImage('*{image}')|}" th:src="@{|/assets/images/*{image}|}" alt="#" />
+												</a> 
+											</div>
+										</div>
+									</div>
+									<div th:each="img:${images}" class="carousel-item col-md-4 ">
+										<div class="panel panel-default">
+											<div class="panel-thumbnail">
+												<a style="width: 60px;height: 40px;"  class="thumb" > <img  style="width: 100%;height: 100%;"
+												th:attr="ng-click=@{|selectImage('${img.id}')|}"	th:src="@{|/assets/images/${img.id}|}" />
+												</a> 
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+								</div>
+								<a class="carousel-control-prev" href="#carouselExample"
+									role="button" data-slide="prev"> <span
+									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+									class="sr-only">Previous</span>
+								</a> <a class="carousel-control-next text-faded"
+									href="#carouselExample" role="button" data-slide="next"> <span
+									class="carousel-control-next-icon" aria-hidden="true"></span> <span
+									class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="full">
+								<div class="tab_bar_section">
+									<ul class="nav nav-tabs" role="tablist">
+										<!-- <li class="nav-item"><a class="nav-link active"
+											data-toggle="tab" href="#description">Description</a></li> -->
+										<li class="nav-item"><a class="nav-link"
+											data-toggle="tab" href="#reviews">Đánh giá</a></li>
+									</ul>
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<!-- <div id="description" class="tab-pane active">
+											<div class="product_desc">
+												<p>danh gia.</p>
+											</div>
+										</div> -->
+										<div id="reviews" class="tab-pane fade">
+											<div class="product_review">
+												<div th:each="s:${loadstart}" class="commant-text row">
+													<div class="col-lg-2 col-md-2 col-sm-4">
+														<div class="profile">
+															<img
+																style="width: 60px; height: 60px; border-radius: 30px;"
+																class="img-responsive"
+																th:src="@{|/assets/images/${s.account.photo}|}">
+														</div>
+													</div>
+													<div class="col-lg-10 col-md-10 col-sm-8">
+														<h5>[[${s.account.fullname}]]</h5>
+														<p>
+															<span hidden class="c_date">[[${s.product.id}]]</span><span
+																class="c_date">[[${s.createDate}]]</span> | <span
+																style="color: rgb(35, 240, 16);"><i
+																class="fa fa-check-circle-o" aria-hidden="true"></i> Đã
+																mua hàng tại Fpoly Store</span>
+														</p>
+														<lable class="rating"> <span
+															th:each="ss,state:${num}"> <i
+															th:if="${state.index < s.evalution}" class="fa fa-star"
+															aria-hidden="true"></i>
+														</span> </lable>
+														<p class="msg">[[${s.comment}]]</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="full review_bt_section">
+															<div class="float-right">
+																<a class="btn sqaure_bt" data-toggle="collapse"
+																	href="#collapseExample" role="button"
+																	aria-expanded="false" aria-controls="collapseExample">Bình luận</a>
+															</div>
+														</div>
+														<div class="full">
+															<div id="collapseExample"
+																class="full collapse commant_box">
+																<form accept-charset="UTF-8" method="post">
+																	<div class="rate">
+																		<input type="radio" id="st5" name="rate" value="5" />
+																		<label ng-click="rating.numberstart(5)" for="st5">5
+																			stars</label> <input type="radio" id="st4" name="rate"
+																			value="4" /> <label ng-click="rating.numberstart(4)"
+																			for="st4" title="text">4 stars</label> <input
+																			type="radio" id="star3" name="rate" value="3" /> <label
+																			ng-click="rating.numberstart(3)" for="star3"
+																			title="text">3 stars</label> <input type="radio"
+																			id="star2" name="rate" value="2" /> <label
+																			ng-click="rating.numberstart(2)" for="star2"
+																			title="text">2 stars</label> <input type="radio"
+																			id="star1" name="rate" value="1" /> <label
+																			ng-click="rating.numberstart(1)" for="star1"
+																			title="text">1 star</label>
+																	</div>
+
+																	<input id="ratings-hidden" name="rating" type="hidden">
+																	<textarea class="form-control animated" cols="50"
+																		id="comment" name="comment"
+																		placeholder="Enter your review here..." required=""></textarea>
+																	<div class="full_bt center">
+																		<button class="btn sqaure_bt" type="button"
+																			ng-click="rating.addstart()">Gửi đánh giá</button>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="full">
+								<div class="main_heading text_align_left"
+									style="margin-bottom: 35px;">
+									<h3>Hàng Cùng Hãng</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				 
+			</div>
+			<div class="row">
+				<div th:each="p:*{brand.products}"
+					class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+					<div>
+
+						<div class="product_list" style="border: 1px solid #17a5e9;">
+							<div class="product_img">
+								<img class="img-responsive"
+									th:src="@{|/assets/images/${p.image}|}" alt="">
+							</div>
+							<div class="product_detail_btm">
+								<div class="center">
+									<h4>
+										<a th:href="@{|/product/detail/${p.id}|}"><div
+												th:utext="${p.name}"></div></a>
+									</h4>
+								</div>
+								<div class="starratin">
+								</div>
+								<div class="product_price">
+									<p>
+										<!-- <span class="old_price">$15.00</span> –  -->
+										<span class="new_price">[[${p.price}]] VNĐ</span>
+									</p>
+								</div>
+								<div class="icons_product">
+									<a th:attr="ng-click=@{|cart.add(${p.id})|}"><i
+										class="fa fa-cart-plus" aria-hidden="true"></i></a> <a href=""></a> <a
+										th:href="@{|/product/detail/${p.id}|}"><i
+										class="fa fa-search" aria-hidden="true"></i></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+</body>
+</html>
+

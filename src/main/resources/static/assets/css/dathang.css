@@ -1,0 +1,448 @@
+/**** Banner ****/
+
+.banner-con {
+    background: url(../img/banner-img-01.jpg) no-repeat;
+    background-size: auto auto;
+    padding: 50px 0;
+    background-position: center;
+}
+
+.banner-detail {
+    text-align: left;
+    color: #fff;
+    padding: 70px 0 0;
+}
+
+.banner-detail h2 {
+    font-size: 39px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 20px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.banner-detail p {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 30px;
+    max-width: 380px;
+    line-height: 1.4em;
+    text-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.free-btn {
+    text-align: center;
+    display: block;
+    background: #b71e67;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 50px;
+    margin: 0 0 50px;
+    max-width: 450px;
+    min-height: 60px;
+    line-height: 2.2em;
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    padding: 5px;
+}
+
+.free-btn:hover {
+    background: #16ce89;
+    color: #fff;
+}
+
+.banner-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.banner-list li {
+    background: url(../img/banner-img-02.jpg) no-repeat;
+    line-height: 1em;
+    padding: 0 0 0 25px;
+    margin: 0 0 30px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.banner-form {
+    background: #fff;
+    padding: 20px 30px 0 30px;
+    color: #000;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-form .form-control {
+    border: 2px solid #cdd9ed;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.banner-form .group span {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+}
+
+.banner-form .group {
+    margin: 0 !important;
+    padding: 0;
+    text-align: left;
+    display: flex;
+}
+
+.banner-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    clear: both;
+    ;
+}
+
+.banner-form h3 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0;
+    padding: 20px 0 10px;
+}
+
+.banner-form label {
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    padding: 0 0 10px;
+    display: block;
+    max-width: 100%;
+    margin-top: 10px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.form-detail {
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+}
+
+.banner-form #select-down {
+    background: #fff url("http://law.pyro-tec.com/wp-content/themes/Directsolicitors/landor/first/images/icon-drop.png") no-repeat 96% 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    color: #777;
+    border: 2px solid #CDD9ED;
+    text-shadow: 0 0 0 #7e7e7e;
+}
+
+.banner-form input[type="radio"],
+.banner-form input[type="checkbox"] {
+    margin: 0 6px 0 0;
+    padding: 0;
+    line-height: normal;
+}
+
+.banner-form .group input:checked {
+    border: 2px solid #cdd9ed;
+    background: #16ce89;
+}
+
+.banner-form .radio input[type="radio"]+.radio-label:before {
+    content: "";
+    border-radius: 100%;
+    border: 1px solid #108ffb;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    transition: all 250ms ease;
+    margin: 0 10px 0 0;
+}
+
+.banner-form .group input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    float: left;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cdd9ed;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+    top: 4px;
+    cursor: pointer;
+    margin: 0 4px 0 0;
+    line-height: 20px;
+}
+
+.form-content {
+    overflow: hidden;
+    text-align: left;
+}
+
+.form-left-side {
+    width: 49%;
+    float: left;
+    padding: 0 0 10px;
+}
+
+.form-left-side p img {
+    margin: 0 0 0 10px;
+}
+
+.group {
+    position: relative;
+    padding: 0 0 23px;
+}
+
+.form-right-side {
+    float: right;
+    width: 49%;
+}
+
+.form-right-side>p {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 0 10px;
+}
+
+.submit-btn-holder {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+
+.submit-btn>input {
+    display: block;
+    border-radius: 4px;
+    background: #16ce89;
+    font-family: "poppins", sans-serif;
+    color: #fff;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    border: 0;
+}
+
+.submit-btn>input:hover {
+    background: #b71e67;
+}
+
+
+/**** Responsive MediaQ ****/
+
+@media (max-width: 1250px) {
+    .group i {
+        top: 2px;
+        left: 2px;
+        padding: 7px 16px;
+        font-size: 16px;
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 1022px) {
+    .banner-detail h2 {
+        font-size: 32px;
+    }
+    .banner-detail p {
+        font-size: 20px;
+        max-width: 340px;
+    }
+    .free-btn {
+        font-size: 28px;
+    }
+    .banner-list li {
+        font-size: 16px;
+        line-height: 1.3em;
+    }
+    .banner-form {
+        min-height: 620px;
+    }
+    .banner-form h3 {
+        font-size: 23px;
+        padding: 0 0 20px;
+    }
+    .banner-form>p {
+        font-size: 14px;
+    }
+    .form-detail {
+        font-size: 12px;
+    }
+    .form-left-side p {
+        font-size: 12px;
+    }
+    .form-right-side>p {
+        font-size: 14px;
+    }
+    .radaio-btn label {
+        font-size: 12px;
+        padding: 11px 14.3px!important;
+        min-height: 40px;
+    }
+    .group i {
+        top: 2px;
+        left: 2px;
+        padding: 7px 16px;
+        font-size: 16px;
+        min-height: 38px;
+    }
+    .group input {
+        padding: 9px 10px 9px 50px;
+    }
+    .checkbox-styled label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-detail h2 {
+        font-size: 28px;
+    }
+    .banner-detail p {
+        font-size: 22px;
+    }
+    .banner-list li {
+        font-size: 14px;
+        line-height: 1.3em;
+    }
+    .free-btn {
+        font-size: 24px;
+        min-height: 50px;
+    }
+    .banner-form {
+        min-height: 500px;
+    }
+    .banner-form h3 {
+        font-size: 23px;
+        padding: 0 0 20px;
+    }
+    .banner-form>p {
+        font-size: 14px;
+    }
+    .radaio-btn label {
+        font-size: 12px;
+        padding: 15px 6.3px!important;
+    }
+    .form-left-side p {
+        margin: 0 0 15px;
+        font-size: 11px;
+    }
+    .group {
+        padding: 0 0 10px;
+    }
+    .group i {
+        padding: 11px 16px;
+        left: 2px;
+        top: 2.5px;
+        max-height: 52px;
+    }
+    .group input {
+        padding: 13px 5px 13px 50px;
+    }
+    .checkbox-styled label {
+        font-size: 10px;
+    }
+    .form-right-side>p {
+        font-size: 13px;
+        padding: 0 0 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .radaio-btn {
+        margin: 0 0 15px;
+    }
+    .radaio-btn label {
+        font-size: 10px;
+    }
+    .form-left-side p {
+        font-size: 10px;
+    }
+    .group {
+        padding: 0 0 15px;
+    }
+    .group i {
+        padding: 10.5px 16px;
+        left: 2px;
+        top: 1px;
+    }
+    .group input {
+        padding: 12px 5px 12px 50px;
+    }
+    .submit-btn>input {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .free-btn {
+        font-size: 18px;
+    }
+    .banner-list li {
+        font-size: 10px;
+        line-height: 2em;
+    }
+    .banner-form {
+        padding: 20px 10px;
+    }
+    .banner-detail h2 {
+        font-size: 20px;
+    }
+    .banner-detail p {
+        font-size: 18px;
+    }
+    .radaio-btn label {
+        font-size: 8px;
+    }
+    .form-left-side {
+        width: 100%;
+        float: none;
+    }
+    .form-right-side {
+        width: 100%;
+        float: none;
+    }
+    .group i {
+        top: 2px;
+    }
+    .group input {
+        width: 100%
+    }
+    .checkbox-styled .checkbox:checked+label:after {
+        top: 10px;
+    }
+    .submit-btn>input {
+        font-size: 15px;
+    }
+}
+
+
+/**** Responsive MediaQ ***
+  
+  /**** Banner ****/

@@ -1,0 +1,45 @@
+<div class="card">
+        <div class="card-header text-center">
+          <h1>THỐNG KÊ DOANH THU THÁNG-NĂM</h1>
+        </div>
+       
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-12 col-xs-12">
+					<div id="chartjs" >
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+              <div class="col-md-12 col-xs-12 mt-5" >
+					<form action="">
+						<div class="form-row">
+							<div class="col">
+							<label>Từ ngày:</label>
+								<input type="date" ng-model="fromDate" class="form-control"/>
+							</div>
+							<div class="col">
+							<label>Đến ngày:</label>
+								<input type="date" ng-model="toDate" class="form-control" />
+							</div>
+						</div>
+						<button type="button" class="btn btn-info mt-2"  ng-click="click()">Xem</button>
+					</form>
+					<table class="table table-bordered text-center mt-3">
+						<thead>
+							<th>TÊN SẢN PHẨM</th>
+							<th>THỜI GIAN</th>
+							<th>TỔNG TIỀN</th>
+						</thead>
+						<tbody>
+							 	<tr ng-repeat="(key, value) in items">
+							 		<td>{{value[0]}}</td>
+							 		<td>{{value[1] | date: 'dd-MM-yyyy'}}</td>
+							 		<td>{{value[2]}}</td>
+							 	</tr>
+						</tbody>
+					</table>
+				</div>
+        </div>
+        </div>
+      </div>
+      

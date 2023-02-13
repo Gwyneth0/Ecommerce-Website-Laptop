@@ -1,0 +1,27 @@
+<table class="table">
+
+	<thead>
+		<tr>
+			<th></th>
+			<th scope="col" ng-repeat="r in roles">{{r.id}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr dir-paginate="a in accounts | itemsPerPage: 9">
+			<td>{{a.username}}</td>
+			<td ng-repeat="r in roles">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" ng-checked="checkAutho(a, r)"
+						id="flexCheckDefault" ng-click="changeAutho(a,r)">
+				</div>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>

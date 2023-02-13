@@ -1,0 +1,166 @@
+
+<h1 style="margin-top: 20px; text-align: center;">Thông tin sản phẩm</h1>
+<div class="row">
+	<div class="col-md-6 ">
+		<div class="d-flex w-100 h-75 justify-content-center align-self-center">
+			<img ng-src="/assets/admin/ImageP/{{form.image}}" class="img-fluid"
+			alt="No image">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<form name="frmPro">
+			<div class="mb-3">
+				<label class="form-label">
+				Tên sản phẩm</label> <input type="text" ng-model="form.name"
+					class="form-control" name="name" required>
+					<em ng-show="frmPro.name.$invalid && !frmPro.name.$pristine"
+					style="color:red;">Hãy nhập tên sản phẩm!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">
+				Giá </label> <input type="number" ng-model="form.price"
+					class="form-control" name="price" required ng-pattern="/^(0|[1-9][0-9]*)$/"/>
+					<em ng-show="frmPro.price.$invalid && !frmPro.price.$pristine"
+					style="color:red;">Không đúng định dạng!</em>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">
+				Số lượng </label> <input type="number" ng-model="form.quantity"
+					class="form-control" name="quantity" required ng-pattern="/^(0|[1-9][0-9]*)$/">
+					<em ng-show="frmPro.quantity.$invalid && !frmPro.quantity.$pristine"
+					style="color:red;">Không đúng định dạng!</em>
+			</div>
+			<div class="mb-3">
+				<labelclass="form-label">
+					Ngày tạo </label> <input type="date" ng-model="form.createDate"
+					class="form-control" name="createDate" required>
+					<em></em>
+			</div>
+			<div class="mb-3">
+				<label for="formFileLg" class="form-label">Ảnh</label> <input
+					class="form-control"
+					onchange="angular.element(this).scope().changeImage(this.files)"
+					id="formFileLg" type="file">
+			</div>
+
+			<label for="formFile" class="form-label">Trạng thái:</label>
+
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio"
+					ng-model="form.available" name="inlineRadioOptions"
+					id="inlineRadio1" ng-value="true"> <label
+					class="form-check-label ml-0" for="inlineRadio1">Hết</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio"
+					ng-model="form.available" name="inlineRadioOptions"
+					id="inlineRadio2" ng-value="false"> <label
+					class="form-check-label ml-0" for="inlineRadio2">Còn</label>
+			</div>
+
+			<div class="mb-3">
+				<label>Danh mục</label> <select class="form-control"
+					ng-model="form.category.id">
+					<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+
+				</select>
+			</div>
+			<div class="mb-3">
+				<label>Hãng</label> <select class="form-control"
+					ng-model="form.brand.id">
+					<option ng-repeat="b in brand" ng-value="b.id">{{b.name}}</option>
+				</select>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+
+<div class="mb-3">
+	<div id="div_editor1">	
+</div>
+</div>
+
+<div class="icon mb-3">
+	<button type="button" class="btn btn-success" ng-click="create(frmPro.$valid)">
+		<i style="margin-right: 10px;" class="fa-solid fa-plus"></i>Thêm
+	</button>
+	<button type="button" class="btn btn-warning" ng-click="update()">
+		<i style="margin-right: 10px;" class="fa-sharp fa-solid fa-wrench"></i>Cập nhật
+	</button>
+	<button type="button" class="btn btn-danger" ng-click="delete(form.id)">
+		<i style="margin-right: 10px;"
+			class="fa-sharp fa-solid fa-delete-left"></i>Xóa
+	</button>
+	<button type="button" class="btn btn-secondary" ng-click="reset()">
+		<i style="margin-right: 10px;"
+			class="fa-sharp fa-solid fa fa-sticky-note"></i>Mới
+	</button>
+	
+	<button type="button" class="btn btn-success " ng-click="export()">
+		<i style="margin-right: 10px;"
+			class="fa-sharp fa-solid fa fa-file-excel"></i>Export excel
+	</button>
+</div>
+<!-- content-wrapper ends -->
+<div class="row">
+
+	<div class="col-6 form-group">
+		<input type="text" class="form-control" ng-model="s"
+			placeholder="TÃƒÂ¬m kiÃ¡ÂºÂ¿m">
+	</div>
+
+	<div class="col-6 form-group">
+		<input type="number" class="form-control" ng-model="pageSize">
+	</div>
+</div>
+<!-- partial -->
+<div class="card mt-3">
+	<div class="card-body">
+		<h4 class="card-title">Danh sách</h4>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Tên</th>
+					<th>Ngày tạo</th>
+					<th>Giá</th>
+					<th>Danh mục</th>
+					<th>Hãng</th>
+					<th>Trạng thái</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="p in items | filter:s | itemsPerPage: pageSize">
+				
+					<td>{{p.id}}</td>
+					<td>{{p.name}}</td>
+					<td>{{p.createDate | date:'dd-MM-yyyy'}}</td>
+					<td>{{p.price | number: 2}}</td>
+					<td>{{p.category.name}}</td>
+					<td>{{p.brand.name}}</td>
+					<td><label ng-if="!p.available" class="badge badge-success">{{p.available?'Hết':'Còn'}}</label>
+						<label ng-if="p.available" class="badge badge-danger">{{p.available?'Hết':'Còn'}}</label>
+					</td>
+					<td>
+
+						<button type="button" ng-click="edit(p)"
+							class="btn btn-warning btn-sm">Sửa</button>
+						<button type="button" ng-click="delete(p.id)"
+							class="btn btn-danger btn-sm">Xóa</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>

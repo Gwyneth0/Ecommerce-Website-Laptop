@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8" />
+<title>Paypal Payment with Spring Boot - ShareEverythings.com</title>
+</head>
+<body>
+	<main style="margin-top: 110px">
+		<h1>Payment Success !</h1>
+		<a th:href="@{/order/list}" >Xem lịch sử</a>
+	</main>
+</body>
+</html>

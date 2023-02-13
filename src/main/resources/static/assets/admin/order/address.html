@@ -1,0 +1,34 @@
+
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<h1>Địa chỉ giao hàng</h1>
+		
+		<label class="col-form-label">Tỉnh/Thành phố</label>
+		<select class="form-select mb-2" ng-change="changeDistrict()"
+			ng-model="itemProvince.id" id="prov"
+			aria-label="Default select example">
+			<option ng-value="p.ProvinceID" ng-repeat="p in province.data">{{p.ProvinceName}}</option>
+
+		</select> 
+		
+		<label class="col-form-label">Quận/Huyện</label>
+		<select class="form-select mb-2" ng-change="changeWard()"
+			ng-model="itemDistrict.id" id="dis">
+			<option ng-value="d.DistrictID" ng-repeat="d in district.data">{{d.DistrictName}}</option>
+
+		</select> 
+		
+		<label class="col-form-label">Xã/Phường</label>
+		<select class="form-select mb-2" ng-model="itemWard.id" id="ward">
+			<option ng-value="w.WardCode" ng-repeat="w in ward.data">{{w.WardName}}</option>
+
+		</select>
+		
+		<label for="exampleFormControlTextarea1" class="form-label">Địa chỉ</label>
+  		<textarea class="form-control mb-2" id="txtAdress" rows="3"></textarea>
+		<h4 id="errAddress"></h4>
+		<button class="btn btn-success" ng-click="save()">Save</button>
+		
+	</div>
+</div>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trang quản trị</title>
+
+<!-- <link rel="styleSheet"
+	href="/assets/admin/vendors/simple-line-icons/css/simple-line-icons.css" />
+<link rel="stylesheet"
+	href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="/assets/admin/vendors/css/vendor.bundle.base.css">
+
+<link rel="stylesheet"
+	href="/assets/admin/vendors/daterangepicker/daterangepicker.css"> -->
+	
+	
+	
+<link rel="styleSheet"
+	href="/assets/admin/vendors/simple-line-icons/css/simple-line-icons.css" />
+<link rel="stylesheet"
+	href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="/assets/admin/vendors/css/vendor.bundle.base.css">
+
+<link rel="stylesheet"
+	href="/assets/admin/vendors/daterangepicker/daterangepicker.css">
+<link rel="stylesheet"
+	href="/assets/admin/vendors/chartist/chartist.min.css">
+
+
+<link rel="stylesheet" href="/assets/admin/css/style.css">
+<link rel="stylesheet" href="/assets/admin/css/pagin.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<script src="https://kit.fontawesome.com/76613e2f02.js"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://rawgit.com/michaelbromley/angularUtils-pagination/master/dirPagination.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- start richtexteditor -->
+<link rel="stylesheet" href="../richtexteditor/rte_theme_default.css" />
+<script type="text/javascript" src="../richtexteditor/rte.js"></script>
+<script type="text/javascript" src="../richtexteditor/plugins/all_plugins.js"></script>
+<!-- end richtexteditor -->
+
+<!-- chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+        .item-photo__preview {
+            width: 150px;
+            height: 150px;
+            border: 1px solid gray;
+        }
+         .delete {
+         	border-radius: 50%;
+         	position: absolute;
+         	background-color:black;
+         	border: none;
+         	color:white
+         }
+         
+         .col-2{
+         	position: relative;
+         }
+    </style>
+
+</head>
+<link rel="icon" href="/assets/images/fevicon/logo.png" type="image/gif">
+<body>
+	<div class="container-scroller" ng-app="admin-app">
+		<div ng-include="'/assets/admin/layout/_menu.html'"></div>
+
+		<div class="page-body-wrapper"
+			style="margin-top: 70px; height: 100%">
+			<div style="background-color: #181824"
+				ng-include="'/assets/admin/layout/_sidebar.html'"></div>
+			<div class="main-panel">
+				<div class="content-wrapper" style="background-color: white">
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+
+	<script src="/assets/admin/vendors/moment/moment.min.js"></script>
+	<script src="/assets/admin/vendors/daterangepicker/daterangepicker.js"></script> -->
+	
+	<script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+
+	<script src="/assets/admin/vendors/chart.js/Chart.min.js"></script> 
+	<script src="/assets/admin/vendors/moment/moment.min.js"></script>
+	<script src="/assets/admin/vendors/daterangepicker/daterangepicker.js"></script>
+	<script src="/assets/admin/vendors/chartist/chartist.min.js"></script> 
+	
+	
+
+	<script src="/assets/admin/js/off-canvas.js"></script>
+	<script src="/assets/admin/js/misc.js"></script>
+
+	<script src="/assets/admin/js/dashboard.js"></script> 
+
+	<script src="/assets/admin/layout/admin-app.js"></script>
+	<script src="/assets/admin/layout/main-ctrl.js"></script>
+	<script src="/assets/admin/product/product-ctrl.js"></script>
+	<script src="/assets/admin/product/product_images-ctrl.js"></script>
+	<script src="/assets/admin/categories/category.js"></script>
+	<script src="/assets/admin/order/order-ctrl.js"></script>
+	<script src="/assets/admin/order/detail-ctrl.js"></script>
+	<script src="/assets/admin/account/account-ctrl.js"></script>
+	<script src="/assets/admin/account/authority-ctrl.js"></script>
+	<script src="/assets/admin/discount/discount-ctrl.js"></script>
+
+	<script src="/assets/admin/chart/chart_categories.js"></script>
+	<script src="/assets/admin/chart/chart_month-year.js"></script>
+	<script src="/assets/admin/chart/chart_qty_product.js"></script>
+	<script src="/assets/admin/chart/chart_qty_client.js"></script>
+	
+	
+	<script src="/assets/admin/brand/brand-ctrl.js"></script>
+	<script src="/assets/admin/role/role-ctrl.js"></script>
+	
+	<script src="/assets/admin/order/address-ctrl.js"></script>
+	<script src="/assets/admin/evalution/evalution-ctrl.js"></script>
+
+	
+</body>
+
+</html>

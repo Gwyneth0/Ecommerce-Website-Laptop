@@ -1,0 +1,31 @@
+<h3>Sản phẩm giảm giá</h3>
+<table class="table container">
+	<thead>
+		<tr>
+			<th scope="col">Mã SP</th>
+			<th scope="col">Tên sản phẩm</th>
+			<th scope="col">Giá</th>
+			<th scope="col">Hãng</th>
+			<th scope="col">Số lượng</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr dir-paginate="p in listProduct | orderBy: 'id' | itemsPerPage: 6">
+			<th scope="row">{{p.id}}</th>
+			<td>{{p.name}}</td>
+			<td>{{p.price}}</td>
+			<td>{{p.brand.name}}</td>
+			<td>{{p.quantity}}</td>
+			<th>
+				<button type="button" class="btn btn-success" ng-click="addToDiscount(p)">Thêm</button>
+			</th>
+		</tr>
+	</tbody>
+</table>
+
+<div class="row">
+	<div class="col-12 d-flex align-items-end justify-content-center">
+		<dir-pagination-controls boundary-links="false"></dir-pagination-controls>
+	</div>
+</div>
